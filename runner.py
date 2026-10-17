@@ -3,20 +3,21 @@ import os
 from pathlib import Path
 import pymysql
 
-EXPECTED_DB = os.environ["EXPECTED_DATABASE"]
+EXPECTED_DB = "TopShelfDeveloper"
+EXPECTED_USER = "topshelf_migrator"
 MIGRATIONS = Path(__file__).parent / "migrations"
 
 def main():
-    if EXPECTED_DB not in {"JadeDeveloper", "TopShelfDeveloper"}:
+    if os.environ.get("EXPECTED_DATABASE") != EXPECTED_DB:
         raise SystemExit("Refusing non-development database")
     config = dict(host=os.environ["DB_HOST"], port=int(os.environ.get("DB_PORT", "3306")),
-                  user=os.environ["DB_USER"], password=os.environ["DB_PASSWORD"],
+                  user=EXPECTED_USER, password=os.environ["DB_PASSWORD"],
                   database=EXPECTED_DB, charset="utf8mb4", autocommit=True)
     with pymysql.connect(**config) as conn:
         with conn.cursor() as cur:
             cur.execute("SELECT DATABASE(), CURRENT_USER()")
             database, user = cur.fetchone()
-            if database != EXPECTED_DB or user.split("@")[0] != os.environ["DB_USER"]:
+            if database != EXPECTED_DB or user.split("@")[0] != EXPECTED_USER:
                 raise SystemExit("Database or authenticated user mismatch")
             cur.execute("CREATE TABLE IF NOT EXISTS schema_migrations (filename VARCHAR(255) PRIMARY KEY, sha256 CHAR(64) NOT NULL, applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP) ENGINE=InnoDB")
             cur.execute("SELECT filename, sha256 FROM schema_migrations")
