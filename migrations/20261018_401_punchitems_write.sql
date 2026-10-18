@@ -1,0 +1,1 @@
+GRANT INSERT (JobID,ToDo,Completed,PunchCategoryID,Billable,Billed,MustBeDoneBy), UPDATE (ToDo,Completed,PunchCategoryID,Billable,Billed,MustBeDoneBy) ON TopShelfDeveloper.PunchItems TO 'topshelf_staging_api'@'%';
