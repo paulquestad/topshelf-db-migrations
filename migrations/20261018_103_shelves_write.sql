@@ -1,0 +1,1 @@
+GRANT INSERT (`RoomID`, `RubbermaidProductID`, `Length`, `Quantity`, `JobID`), UPDATE (`RoomID`, `RubbermaidProductID`, `Length`, `Quantity`) ON TopShelfDeveloper.`Shelves` TO 'topshelf_staging_api'@'%';
