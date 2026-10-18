@@ -1,0 +1,1 @@
+GRANT SELECT (`RoomID`, `EnclosureTypeID`, `EnduroShield`, `GlassOrderDate`, `HardwareOrderDate`, `PONumber`, `Note`, `NoteInstaller`, `NoteCustomer`, `Price`, `Multiplier`, `NotHG`, `HGID`, `CreatedAt`, `UpdatedAt`, `JobID`) ON TopShelfDeveloper.`tblHG` TO 'topshelf_staging_api'@'%';
