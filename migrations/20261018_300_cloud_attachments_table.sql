@@ -1,0 +1,22 @@
+CREATE TABLE TopShelfDeveloper.TopShelfOSAttachments (
+  ID int NOT NULL AUTO_INCREMENT,
+  RequestId char(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  JobID int NOT NULL,
+  FileName varchar(255) NOT NULL,
+  Title varchar(255) NOT NULL,
+  Description varchar(2000) DEFAULT NULL,
+  ContentType varchar(150) CHARACTER SET ascii NOT NULL,
+  ByteSize bigint NOT NULL,
+  ObjectKey varchar(150) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  ObjectVersion varchar(1024) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL,
+  Status enum('pending','ready') NOT NULL DEFAULT 'pending',
+  UploadedBy varchar(128) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  CreatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CompletedAt datetime DEFAULT NULL,
+  PRIMARY KEY (ID),
+  UNIQUE KEY UX_OSAttachment_Request (RequestId),
+  UNIQUE KEY UX_OSAttachment_Key (ObjectKey),
+  KEY IX_OSAttachment_Job (JobID,ID),
+  CONSTRAINT CK_OSAttachment_Size CHECK (ByteSize BETWEEN 1 AND 26214400),
+  CONSTRAINT FK_OSAttachment_Job FOREIGN KEY (JobID) REFERENCES TopShelfDeveloper.Jobs(ID) ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

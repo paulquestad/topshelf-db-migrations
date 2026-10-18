@@ -1,0 +1,1 @@
+GRANT SELECT, INSERT (RequestId,JobID,FileName,Title,Description,ContentType,ByteSize,ObjectKey,Status,UploadedBy), UPDATE (ObjectVersion,Status,CompletedAt) ON TopShelfDeveloper.TopShelfOSAttachments TO 'topshelf_staging_api'@'%';
