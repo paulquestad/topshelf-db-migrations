@@ -1,0 +1,1 @@
+GRANT INSERT (`ServiceId`, `Item`, `Description`, `Quantity`, `Price`, `JobID`), UPDATE (`ServiceId`, `Item`, `Description`, `Quantity`, `Price`) ON TopShelfDeveloper.`MiscServices` TO 'topshelf_staging_api'@'%';

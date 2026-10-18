@@ -1,0 +1,1 @@
+GRANT SELECT (`ID`, `ShowerDoorPartNum`, `Description`, `Width`, `Height`, `Finish`, `GlassType`, `GlassThickness`, `DoorType`) ON TopShelfDeveloper.`ShowerDoorPartNumbers` TO 'topshelf_staging_api'@'%';

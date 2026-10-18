@@ -1,0 +1,1 @@
+GRANT INSERT (`RoomID`, `EnclosureTypeID`, `EnduroShield`, `GlassOrderDate`, `HardwareOrderDate`, `PONumber`, `Note`, `NoteInstaller`, `NoteCustomer`, `JobID`), UPDATE (`RoomID`, `EnclosureTypeID`, `EnduroShield`, `GlassOrderDate`, `HardwareOrderDate`, `PONumber`, `Note`, `NoteInstaller`, `NoteCustomer`) ON TopShelfDeveloper.`tblHG` TO 'topshelf_staging_api'@'%';
