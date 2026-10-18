@@ -1,0 +1,1 @@
+GRANT SELECT (`RoomID`, `MirrorThicknessID`, `EdgeworkID`, `WidthInches`, `HeightInches`, `Quantity`, `Cutouts`, `InsideCorner`, `ArchTop`, `InsideFrame`, `Oval`, `JChannel`, `Frame`, `ID`, `CreatedAt`, `UpdatedAt`, `JobID`) ON TopShelfDeveloper.`Mirrors` TO 'topshelf_staging_api'@'%';
