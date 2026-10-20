@@ -1,0 +1,1 @@
+GRANT SELECT (`SSN`, `PayRate`, `BankAccountNumber`, `RoutingNumber`, `AccountType`), INSERT (`SSN`, `PayRate`, `BankAccountNumber`, `RoutingNumber`, `AccountType`), UPDATE (`SSN`, `PayRate`, `BankAccountNumber`, `RoutingNumber`, `AccountType`) ON TopShelfDeveloper.Employees TO 'topshelf_staging_api'@'%';
