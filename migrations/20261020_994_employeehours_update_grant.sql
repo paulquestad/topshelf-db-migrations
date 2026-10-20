@@ -1,0 +1,1 @@
+GRANT UPDATE (JobID, Hours, DateWorked, Shelving, BathAccs, Mirrors, ShowerDoors, Blinds, MelamineSystem, Admin, Notes) ON TopShelfDeveloper.EmployeeHours TO 'topshelf_staging_api'@'%';
