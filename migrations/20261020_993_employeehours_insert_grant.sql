@@ -1,0 +1,1 @@
+GRANT INSERT (EmployeeID, JobID, Hours, DateWorked, Shelving, BathAccs, Mirrors, ShowerDoors, Blinds, MelamineSystem, Admin, EnergyTesting, NeedsReview, Reviewed, CreatedBy, Notes) ON TopShelfDeveloper.EmployeeHours TO 'topshelf_staging_api'@'%';
