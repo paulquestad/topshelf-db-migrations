@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS TopShelfDeveloper.TopShelfOSPushSubscriptions (
+  ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  EmployeeID INT NOT NULL,
+  CognitoSub VARCHAR(64) NOT NULL,
+  EndpointHash CHAR(64) NOT NULL,
+  Endpoint VARCHAR(1000) NOT NULL,
+  P256dh VARCHAR(100) NOT NULL,
+  Auth VARCHAR(40) NOT NULL,
+  UserAgent VARCHAR(200) NULL,
+  CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  LastSentAt DATETIME NULL,
+  UNIQUE KEY EndpointHash (EndpointHash),
+  KEY EmployeeID (EmployeeID),
+  CONSTRAINT FK_TopShelfOSPushSubscriptions_Employees FOREIGN KEY (EmployeeID) REFERENCES TopShelfDeveloper.Employees (ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
