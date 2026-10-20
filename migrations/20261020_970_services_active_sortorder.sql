@@ -1,0 +1,1 @@
+ALTER TABLE TopShelfDeveloper.Services ADD COLUMN `IsActive` TINYINT(1) NOT NULL DEFAULT 1, ADD COLUMN `SortOrder` INT NULL;
