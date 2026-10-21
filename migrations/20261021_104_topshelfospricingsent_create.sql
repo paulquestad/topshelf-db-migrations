@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS TopShelfDeveloper.TopShelfOSPricingSent (
+  ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  VersionID INT NOT NULL,
+  ProposalID INT NOT NULL,
+  Run VARCHAR(10) NOT NULL,
+  ActorSub VARCHAR(64) NOT NULL,
+  CreatedAt TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  UNIQUE KEY VersionID (VersionID),
+  KEY ProposalID (ProposalID),
+  CONSTRAINT FK_TopShelfOSPricingSent_Versions FOREIGN KEY (VersionID) REFERENCES TopShelfDeveloper.TopShelfOSPricingVersions (ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
